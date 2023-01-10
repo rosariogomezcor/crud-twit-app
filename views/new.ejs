@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Twit</title>
+</head>
+<body>
+    <h2>Post a new Twit</h2>
+    <form method="POST" action="/twits">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" class="text">
+        <br><br>
+        <label for="twit">Twit</label>
+        <textarea name="twit" id="twit" cols="30" rows="10"></textarea>
+        <br><br>
+        <button>Post Twit</button>    
+    </form>
+    <a href="/">Back</a>
+</body>
+</html>
