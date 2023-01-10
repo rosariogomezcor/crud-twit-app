@@ -8,5 +8,10 @@
 </head>
 <body>
     <h1>Twit App :)</h1>
+    <ul>
+        <% for (twit of twits) { %>
+            <li><%= twit.twit %> - <b><%= twit.username %></b></li>
+        <% } %> 
+    </ul> 
 </body>
 </html>
