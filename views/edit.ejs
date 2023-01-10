@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Twit</title>
+</head>
+<body>
+    <form method="POST" action="/twits/<%= twits.id %>?_method=PATCH">
+        <label for="twit">Twit</label>
+        <br>
+        <textarea name="twit" id="twit" cols="30" rows="10" placeholder="<%= twits.twit %>"></textarea>
+        <br><br>
+        <button>Save</button> 
+    </form>
+    
+</body>
+</html>

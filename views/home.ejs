@@ -10,7 +10,14 @@
     <h1>Twit App :)</h1>
     <ul>
         <% for (twit of twits) { %>
-            <li><%= twit.twit %> - <b><%= twit.username %></b></li>
+            <li>
+                <%= twit.twit %> - <b><%= twit.username %></b>
+                <a href="/twits/<%= twit.id %>">Show Details</a>
+                <a href="/twits/<%= twit.id %>/edit">Edit</a>
+                <form method="POST" action="/twits/<%= twit.id %>?_method=DELETE">
+                    <button>Delete</button>
+                </form>
+            </li>
         <% } %> 
     </ul> 
     <a href="/twits/new">Post New Twit</a>

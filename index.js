@@ -51,14 +51,37 @@ app.get('/twits/new', (req, res) => {
 })
 
 app.post('/twits', (req, res) => {
-    const newUsername = req.body.username; 
-    const newTwit = req.body.twit; 
-    twits.push({ username: newUsername, twit: newTwit, id: uuid() });  
+    const { username, twit } = req.body; 
+    twits.push({ username, twit, id: uuid() });  
     res.redirect('/twits'); 
 })
 
-app.get('twits/:id', (req, res) => {
-    res.render('show'); 
+app.get('/twits/:id', (req, res) => {
+    const { id } = req.params; 
+    const foundTwit = twits.find(t => t.id === id); 
+    res.render('show', { twits: foundTwit }); 
+})
+
+app.get('/twits/:id/edit', (req, res) => {
+    const { id } = req.params; 
+    const foundTwit = twits.find(t => t.id === id); 
+    res.render('edit', { twits: foundTwit }); 
+})
+
+app.patch('/twits/:id', (req, res) => {
+    const { id } = req.params; 
+    const newTwitText = req.body.twit; 
+    const foundTwit = twits.find(t => t.id === id);
+    foundTwit.twit = newTwitText; 
+    res.redirect('/twits'); 
+})
+
+app.delete('/twits/:id', (req, res) => {
+    const { id } = req.params; 
+    const foundTwit = twits.find(t => t.id === id);
+    const indexTwit = twits.indexOf(foundTwit); 
+    twits.splice(indexTwit, 1); 
+    res.redirect('/twits'); 
 })
 
 app.listen(3000, () => {
